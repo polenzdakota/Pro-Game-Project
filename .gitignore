@@ -1,5 +1,5 @@
-library/*
+proGameProj/library/*
 *.sln
 *.csproj
 *.userprefs
-proGameProj_Data/*
+proGameProj/proGameProj_Data/*
