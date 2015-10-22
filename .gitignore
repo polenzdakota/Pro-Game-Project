@@ -3,3 +3,4 @@ proGameProj/library/*
 *.csproj
 *.userprefs
 proGameProj/proGameProj_Data/*
+proGameProj/Temp/*
