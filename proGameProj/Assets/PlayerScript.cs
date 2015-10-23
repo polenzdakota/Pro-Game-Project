@@ -49,7 +49,11 @@ public class PlayerScript : MonoBehaviour, IKillable {
 	/// Fires a bullet object at the current position 
 	/// </summary>
 	void Fire() {
-		Instantiate (bullet, transform.position, transform.rotation);
+		float heightDivTwo = transform.localScale.y / 2;
+		Vector3 instPosition = 
+			new Vector3 (transform.position.x, transform.position.y + heightDivTwo, transform.position.z);
+
+		Instantiate (bullet, instPosition, transform.rotation);
 	}
 
 	/// <summary>
