@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// Class holds all player script.
+/// </summary>
 public class PlayerScript : MonoBehaviour, IKillable {
 	public float speed = 2f;
+	public GameObject bullet;
 	public int topLeftPlayFieldX = -20;
 	public int topLeftPlayFieldY = 10;
 	public int playFieldWidth = 40;
@@ -26,13 +31,25 @@ public class PlayerScript : MonoBehaviour, IKillable {
 		float movementX = Input.GetAxis ("Horizontal");
 		float movementY = Input.GetAxis ("Vertical");
 
-		if (isWithinBounds (movementX, movementY, speed)) {
+		if (IsWithinBounds (movementX, movementY, speed)) {
 			transform.Translate (speed * movementX, speed * movementY, 0);
 		}
+
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			Application.Quit ();
 		}
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			Fire ();
+		}
+	}
+
+	/// <summary>
+	/// Fires a bullet object at the current position 
+	/// </summary>
+	void Fire() {
+		Instantiate (bullet, transform.position, transform.rotation);
 	}
 
 	/// <summary>
@@ -42,7 +59,7 @@ public class PlayerScript : MonoBehaviour, IKillable {
 	/// <param name="xMovement">X movement direction and degree</param>
 	/// <param name="yMovement">Y movement direction and degree</param>
 	/// <param name="speed">Speed of the player unit</param>
-	bool isWithinBounds(float xMovement, float yMovement, float speed) {
+	bool IsWithinBounds(float xMovement, float yMovement, float speed) {
 		float xPos = transform.position.x + (xMovement * speed);
 		float yPos = transform.position.y + (yMovement * speed);
 		return ((xPos > topLeftPlayFieldX && xPos < topLeftPlayFieldX + playFieldWidth) &&
