@@ -47,7 +47,9 @@ public class BoardControl : MonoBehaviour {
 
 		// Make scorefield at top left
 		Rect scoreField = new Rect (10, 10, 150, 20);
-		string scoreText = "Score: " + score;
+		string fmt = "0000000000";
+		string fullScore = score.ToString (fmt);
+		string scoreText = "Score: " + fullScore;
 		GUI.Box(scoreField, scoreText);
 
 		//Make lives and status at top right
