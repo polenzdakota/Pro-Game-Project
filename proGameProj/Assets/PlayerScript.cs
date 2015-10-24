@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour, IKillable {
 	public int topLeftPlayFieldY = 10;
 	public int playFieldWidth = 40;
 	public int playFieldHeight = 20;
+	public GameObject UI;
 
 
 	// Use this for initialization
@@ -33,6 +34,7 @@ public class PlayerScript : MonoBehaviour, IKillable {
 
 		if (IsWithinBounds (movementX, movementY, speed)) {
 			transform.Translate (speed * movementX, speed * movementY, 0);
+			UI.GetComponent<BoardControl>().DebugUpdatePlayerPos(transform.position);
 		}
 
 

@@ -107,6 +107,7 @@ MonoBehaviour:
   topLeftPlayFieldY: 10
   playFieldWidth: 40
   playFieldHeight: 20
+  UI: {fileID: 120716, guid: 1374aa3957f71db4598d9837e90a7d12, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -130,6 +131,10 @@ Prefab:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 102778, guid: 4a2e036834f71d34c8c5946141344500, type: 2}
+    - target: {fileID: 0}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 120716, guid: 1374aa3957f71db4598d9837e90a7d12, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 189602}

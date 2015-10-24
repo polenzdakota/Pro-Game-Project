@@ -3,13 +3,12 @@ using System.Collections;
 
 public class BoardControl : MonoBehaviour {
 	public int score;
-	public string scoreText;
 	public int lives = 3;
+	public bool displayDebugWindow = true;
+	private static Vector3 playerPos;
 
 	// Use this for initialization
 	void Start () {
-		score = 0;
-		scoreText = "" + score;
 	}
 	
 	// Update is called once per frame
@@ -20,7 +19,7 @@ public class BoardControl : MonoBehaviour {
 	/// Updates score.
 	/// </summary>
 	/// <param name="added">Score to Add.</param>
-	void UpdateScore(int added) {
+	public void UpdateScore(int added) {
 		score += added;
 	}
 
@@ -28,8 +27,17 @@ public class BoardControl : MonoBehaviour {
 	/// Updates the lives.
 	/// </summary>
 	/// <param name="added">Lives to Add.</param>
-	void UpdateLives(int added) {
+	public void UpdateLives(int added) {
 		lives += lives;
+	}
+
+	/// <summary>
+	/// Updates the current instance of the player position to the 
+	/// given Vector3.
+	/// </summary>
+	/// <param name="newPos">New position.</param>
+	public void DebugUpdatePlayerPos(Vector3 newPos) {
+		playerPos = newPos;
 	}
 
 	/// <summary>
@@ -39,14 +47,25 @@ public class BoardControl : MonoBehaviour {
 
 		// Make scorefield at top left
 		Rect scoreField = new Rect (10, 10, 150, 20);
-		GUI.Box(scoreField, "Score: ");
-		scoreField.x += 100;
-		scoreField.width -= 100;
-		GUI.TextField (scoreField, scoreText);
+		string scoreText = "Score: " + score;
+		GUI.Box(scoreField, scoreText);
 
 		//Make lives and status at top right
 		Rect gameStateInfoField = new Rect (700, 10, 125, 100);
 		GUI.Box(gameStateInfoField, "State and Lives");
+
+		//Draws debug window if displayDebugWindow is true
+		if (displayDebugWindow) {
+			Rect debugWindow = new Rect (10, 400, 200, 100);
+			GUI.Box (debugWindow,"Debug Window");
+			Rect debugContents = new Rect (15, 420, 190, 75); 
+			string playerPosX = string.Format("{0:#,###.##}", playerPos.x);
+			string playerPosY = string.Format("{0:#,###.##}", playerPos.y);
+
+			string posText = "Player Position: (" + playerPosX + " , " + playerPosY + ")";
+
+			GUI.TextField (debugContents, posText);
+		}
 
 	}
 }
