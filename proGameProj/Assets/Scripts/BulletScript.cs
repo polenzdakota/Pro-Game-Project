@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// Class holds all bullet script.
 /// </summary>
-public class BulletScript : MonoBehaviour {
+public class BulletScript : MonoBehaviour{
 	public float bulletSpeed = 2f;
 
 	// Use this for initialization
@@ -28,6 +28,7 @@ public class BulletScript : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		if (col.GetComponent<IKillable>() != null) {
 			col.GetComponent<IKillable>().OnHit();
+			DestroyObject (gameObject);
 		}
 	}
 }

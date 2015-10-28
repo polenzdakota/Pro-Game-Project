@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class UnityUIController : MonoBehaviour {
-	public int score;
+	public static int score;
 	public int lives = 3;
 	public bool displayDebugWindow = true;
 	public Text scoreText;

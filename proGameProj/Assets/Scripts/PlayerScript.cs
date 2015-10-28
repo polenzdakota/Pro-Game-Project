@@ -5,7 +5,7 @@ using System.Collections;
 /// <summary>
 /// Class holds all player script.
 /// </summary>
-public class PlayerScript : MonoBehaviour, IKillable {
+public class PlayerScript : MonoBehaviour {
 	public float speed = 2f;
 	public GameObject bullet;
 	public int topLeftPlayFieldX = -20;
@@ -72,24 +72,4 @@ public class PlayerScript : MonoBehaviour, IKillable {
 			    (yPos < topLeftPlayFieldY && yPos > topLeftPlayFieldY - playFieldHeight));
 	}
 
-	/// <summary>
-	/// Handles non-player inputed movement
-	/// </summary>
-	public void Movement() {
-		//TODO
-	}
-
-	/// <summary>
-	/// Executed when unit is killed
-	/// </summary>
-	public void OnKill() {
-		//TODO
-	}
-
-	/// <summary>
-	/// Executed when unit is hit.
-	/// </summary>
-	public void OnHit() {
-		//TODO
-	}
 }
