@@ -26,6 +26,8 @@ public class BulletScript : MonoBehaviour {
 	/// </summary>
 	/// <param name="col">Col.</param>
 	void OnTriggerEnter(Collider col) {
-		//TODO
+		if (col.GetComponent<IKillable>() != null) {
+			col.GetComponent<IKillable>().OnHit();
+		}
 	}
 }
