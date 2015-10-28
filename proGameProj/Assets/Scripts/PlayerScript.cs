@@ -34,7 +34,7 @@ public class PlayerScript : MonoBehaviour, IKillable {
 
 		if (IsWithinBounds (movementX, movementY, speed)) {
 			transform.Translate (speed * movementX, speed * movementY, 0);
-			UI.GetComponent<BoardControl>().DebugUpdatePlayerPos(transform.position);
+			UI.GetComponent<UnityUIController>().DebugUpdatePlayerPos(transform.position);
 		}
 
 
