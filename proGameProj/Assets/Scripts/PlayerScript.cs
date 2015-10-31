@@ -8,10 +8,11 @@ using System.Collections;
 public class PlayerScript : MonoBehaviour {
 	public float speed = 2f;
 	public GameObject bullet;
-	public int topLeftPlayFieldX = -20;
-	public int topLeftPlayFieldY = 10;
-	public int playFieldWidth = 40;
-	public int playFieldHeight = 20;
+	public static float topLeftPlayFieldX = -20f;
+	public static float topLeftPlayFieldY = 10f;
+	public static float playFieldWidth = 40f;
+	public static float playFieldHeight = 20f;
+	public static float camSpeed = 0.1f;
 	public GameObject UI;
 
 
@@ -32,10 +33,16 @@ public class PlayerScript : MonoBehaviour {
 		float movementX = Input.GetAxis ("Horizontal");
 		float movementY = Input.GetAxis ("Vertical");
 
+		//Kind of weird code. Should update.
+		float displacementY = camSpeed;
+		float displacementX = 0f;
 		if (IsWithinBounds (movementX, movementY, speed)) {
-			transform.Translate (speed * movementX, speed * movementY, 0);
-			UI.GetComponent<UnityUIController>().DebugUpdatePlayerPos(transform.position);
+			displacementY = displacementY + (speed * movementY);
+			displacementX = speed * movementX;
 		}
+
+		transform.Translate (displacementX, displacementY, 0);
+		UI.GetComponent<UnityUIController>().DebugUpdatePlayerPos(transform.position);
 
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
@@ -70,6 +77,14 @@ public class PlayerScript : MonoBehaviour {
 		float yPos = transform.position.y + (yMovement * speed);
 		return ((xPos > topLeftPlayFieldX && xPos < topLeftPlayFieldX + playFieldWidth) &&
 			    (yPos < topLeftPlayFieldY && yPos > topLeftPlayFieldY - playFieldHeight));
+	}
+
+	/// <summary>
+	/// Moves the current playfield by the given offset in the Y direction.
+	/// </summary>
+	/// <param name="offset">Offset.</param>
+	public void AddCamOffset(float offset) {
+		topLeftPlayFieldY += offset;
 	}
 
 }
