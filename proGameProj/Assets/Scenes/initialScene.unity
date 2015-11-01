@@ -835,7 +835,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1512435990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camSpeed: .100000001
   player: {fileID: 189602, guid: f56a4ebe9c8eeca45a5bec1c08d873b7, type: 2}
+  UI: {fileID: 188334, guid: 1374aa3957f71db4598d9837e90a7d12, type: 2}
 --- !u!1001 &1898180238
 Prefab:
   m_ObjectHideFlags: 0

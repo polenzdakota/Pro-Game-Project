@@ -10,6 +10,7 @@ public class UnityUIController : MonoBehaviour {
 	public Text debugText;
 	private string scoreFMT;
 	private static Vector3 playerPos;
+	private static float camPosY;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,8 @@ public class UnityUIController : MonoBehaviour {
 			string debugWindowText = "DebugWindow\n";
 			int aproxPosX = (int)playerPos.x;
 			int aproxPosY = (int)playerPos.y;
-			debugWindowText = debugWindowText + "Player Position: (" + aproxPosX + " , " + aproxPosY + ")";
+			debugWindowText = debugWindowText + "Player Position: (" + aproxPosX + " , " + aproxPosY + ")\n";
+			debugWindowText = debugWindowText + "Camera Y Position: " + (int)camPosY;
 			debugText.text = debugWindowText;
 		}
 	}
@@ -38,7 +40,8 @@ public class UnityUIController : MonoBehaviour {
 			string debugWindowText = "DebugWindow\n";
 			int aproxPosX = (int)playerPos.x;
 			int aproxPosY = (int)playerPos.y;
-			debugWindowText = debugWindowText + "Player Position: (" + aproxPosX + " , " + aproxPosY + ")";
+			debugWindowText = debugWindowText + "Player Position: (" + aproxPosX + " , " + aproxPosY + ")\n";
+			debugWindowText = debugWindowText + "Camera Y Position: " + (int)camPosY;
 			debugText.text = debugWindowText;
 		}
 	}
@@ -57,6 +60,15 @@ public class UnityUIController : MonoBehaviour {
 	/// <param name="added">Lives to Add.</param>
 	public void UpdateLives(int added) {
 		lives += lives;
+	}
+
+
+	/// <summary>
+	/// Updates the cam Y position.
+	/// </summary>
+	/// <param name="posY">Position y.</param>
+	public void UpdateCamPos(float posY) {
+		camPosY = posY;
 	}
 	
 	/// <summary>
