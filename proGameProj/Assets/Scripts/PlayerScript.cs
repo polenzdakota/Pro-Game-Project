@@ -87,4 +87,13 @@ public class PlayerScript : MonoBehaviour {
 		topLeftPlayFieldY += offset;
 	}
 
+	/// <summary>
+	/// Gets the position.
+	/// </summary>
+	/// <returns>The position.</returns>
+	public Vector3 GetPosition() {
+		print (transform.position);
+		return transform.position;
+	}
+
 }
