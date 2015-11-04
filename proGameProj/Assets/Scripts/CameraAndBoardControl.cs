@@ -7,8 +7,8 @@ using System.Collections;
 public class CameraAndBoardControl : MonoBehaviour {
 	private float camPosY;
 	public float camSpeed = 0.1f;
-	public static float camViewTopLeftX;
-	public static float camViewTopLeftY;
+	public static float camViewBotLeftX;
+	public static float camViewBotLeftY;
 	public static float camViewHeight;
 	public static float camViewWidth;
 	public GameObject player;
@@ -17,8 +17,8 @@ public class CameraAndBoardControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		camViewTopLeftY = 20;
-		camViewTopLeftX = -30;
+		camViewBotLeftY = -20;
+		camViewBotLeftX = -30;
 		camViewHeight = 40;
 		camViewWidth = 60;
 		camPosY = transform.position.z;
@@ -29,7 +29,7 @@ public class CameraAndBoardControl : MonoBehaviour {
 		if (camMoves) {
 			transform.Translate (0, camSpeed, 0);
 			camPosY = transform.position.y;
-			camViewTopLeftY += camSpeed;
+			camViewBotLeftY += camSpeed;
 			//AddCamOffset needs to be called to update playfield
 			player.GetComponent<PlayerScript>().AddCamOffset(camSpeed);
 			UI.GetComponent<UnityUIController>().UpdateCamPos(camPosY);
@@ -41,7 +41,7 @@ public class CameraAndBoardControl : MonoBehaviour {
 	/// </summary>
 	/// <returns>The cam view.</returns>
 	public Rect GetCamView() {
-		Rect camView = new Rect (camViewTopLeftX, camViewTopLeftY, camViewWidth, camViewHeight);
+		Rect camView = new Rect (camViewBotLeftX, camViewBotLeftY, camViewWidth, camViewHeight);
 		return camView;
 	}
 
