@@ -92,7 +92,6 @@ public class PlayerScript : MonoBehaviour {
 	/// </summary>
 	/// <returns>The position.</returns>
 	public Vector3 GetPosition() {
-		print (transform.position);
 		return transform.position;
 	}
 
