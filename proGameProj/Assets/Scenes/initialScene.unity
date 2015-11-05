@@ -123,7 +123,7 @@ MonoBehaviour:
   speed: .100000001
   control: {fileID: 1612336490}
   UI: {fileID: 188334, guid: 1374aa3957f71db4598d9837e90a7d12, type: 2}
-  player: {fileID: 189602, guid: f56a4ebe9c8eeca45a5bec1c08d873b7, type: 2}
+  player: {fileID: 927043986}
 --- !u!54 &5339466
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -591,6 +591,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!1 &927043986 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 189602, guid: f56a4ebe9c8eeca45a5bec1c08d873b7, type: 2}
+  m_PrefabInternal: {fileID: 1170359913}
 --- !u!1 &1075513328
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +797,10 @@ Prefab:
     - target: {fileID: 11429600, guid: f56a4ebe9c8eeca45a5bec1c08d873b7, type: 2}
       propertyPath: playFieldHeight
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 189602, guid: f56a4ebe9c8eeca45a5bec1c08d873b7, type: 2}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f56a4ebe9c8eeca45a5bec1c08d873b7, type: 2}
