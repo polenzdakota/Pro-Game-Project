@@ -12,7 +12,6 @@ public class BasicShooter : MonoBehaviour, IKillable {
 	public int hp = 1;
 	private float movementX;
 	private float movementY;
-	private float targetPosY;
 	public float frequency = 1f;
 	private float startTime;
 	private float prevTime = 0.0f;
@@ -28,7 +27,6 @@ public class BasicShooter : MonoBehaviour, IKillable {
 		movementX = 0;
 		movementY = 0;
 		originalPos = transform.position;
-		targetPosY = originalPos.y - 10f;
 	}
 	
 	// Update is called once per frame
@@ -36,7 +34,8 @@ public class BasicShooter : MonoBehaviour, IKillable {
 		timedFire = Time.time - startTime - prevTime;
 		Rect activeRect = control.GetComponent<CameraAndBoardControl> ().GetCamView ();
 		Vector2 currentPos = new Vector2 (transform.position.x, transform.position.y);
-		if (activeRect.Contains (currentPos)) {
+		float offset = activeRect.y + 30f; 
+		if (currentPos.y < offset) {
 			Movement();
 			if (timedFire > frequency) {
 				Instantiate (EnemBullet, transform.position, transform.rotation);
@@ -50,14 +49,9 @@ public class BasicShooter : MonoBehaviour, IKillable {
 	/// Movement change for a unit. Called each frame.
 	/// </summary>
 	public void Movement(){
-		if (transform.position.y > targetPosY) {
-			movementX = 0;
-			movementY = -0.1f;
-		} else {
-			Vector3 playerPos = player.GetComponent<PlayerScript>().GetPosition();
-			movementY = control.GetComponent<CameraAndBoardControl>().GetCamSpeed();
-			movementX = (transform.position.x > playerPos.x) ? -1 : 1;
-		}
+		Vector3 playerPos = player.GetComponent<PlayerScript>().GetPosition();
+		movementY = -control.GetComponent<CameraAndBoardControl>().GetCamSpeed();
+		movementX = (transform.position.x > playerPos.x) ? -1 : 1;
 		transform.Translate (movementX * speed, movementY, 0);
 	}
 

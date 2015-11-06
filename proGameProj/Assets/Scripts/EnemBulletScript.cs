@@ -9,13 +9,13 @@ public class EnemBulletScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		iniPosY = transform.position.y;
-		maxY = iniPosY - 50;
+		maxY = iniPosY - 25;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate (0, -bulletSpeed, 0);
-		if (transform.position.y > maxY) {
+		transform.Translate (0, bulletSpeed, 0);
+		if (transform.position.y < maxY) {
 			DestroyObject (gameObject);
 		}
 		
@@ -26,8 +26,7 @@ public class EnemBulletScript : MonoBehaviour {
 	/// </summary>
 	/// <param name="col">Col.</param>
 	void OnTriggerEnter(Collider col) {
-			if (col.GetComponent<PlayerScript>() != null) {
-			print("trigger");
+		if (col.GetComponent<PlayerScript>() != null) {
 			col.GetComponent<PlayerScript>().OnHitP();
 			DestroyObject (gameObject);
 		}
