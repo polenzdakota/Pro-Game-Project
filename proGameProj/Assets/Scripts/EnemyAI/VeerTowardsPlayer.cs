@@ -41,7 +41,7 @@ public class VeerTowardsPlayer : MonoBehaviour, IKillable {
 	/// </summary>
 	public void OnKill() {
 		DestroyObject (gameObject);
-		UI.GetComponent<UnityUIController> ().UpdateScore (100);
+		UI.GetComponent<UnityUIController> ().UpdateScore (150);
 	}
 	
 	/// <summary>

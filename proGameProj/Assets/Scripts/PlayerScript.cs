@@ -87,6 +87,10 @@ public class PlayerScript : MonoBehaviour {
 		topLeftPlayFieldY += offset;
 	}
 
+	public void OnHitP() {
+		//TODO
+	}
+
 	/// <summary>
 	/// Gets the position.
 	/// </summary>

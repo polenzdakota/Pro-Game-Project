@@ -46,6 +46,14 @@ public class CameraAndBoardControl : MonoBehaviour {
 	}
 
 	/// <summary>
+	/// Gets the cam speed.
+	/// </summary>
+	/// <returns>The cam speed.</returns>
+	public float GetCamSpeed() {
+		return camSpeed;
+	}
+
+	/// <summary>
 	/// Sets camMoves which determines if the camera is moving
 	/// </summary>
 	/// <param name="moves">If set to <c>true</c> moves.</param>
