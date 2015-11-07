@@ -49,10 +49,9 @@ public class CameraAndBoardControl : MonoBehaviour {
 	/// Updates the state of the scene.
 	/// </summary>
 	/// <param name="scene">Scene.</param>
-	public void UpdateSceneState(int scene) {
-		//TODO
+	public void UpdateSceneState(string sceneName) {
+		Application.LoadLevel (sceneName);
 	}
-	
 
 	/// <summary>
 	/// Gets the cam speed.
