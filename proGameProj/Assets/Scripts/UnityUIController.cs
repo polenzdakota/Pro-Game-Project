@@ -59,6 +59,10 @@ public class UnityUIController : MonoBehaviour {
 		score += added;
 	}
 
+	/// <summary>
+	/// Updates the player vulnerability.
+	/// </summary>
+	/// <param name="status">If set to <c>true</c> status.</param>
 	public void UpdateVulnerability(bool status) {
 		invulnerable = status;
 	}

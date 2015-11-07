@@ -96,7 +96,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Makes the player invulnerable.
+	/// Flips the players current vulnerable status.
 	/// </summary>
 	public void FlipInvulnerable() {
 		invulnerable = !invulnerable;
