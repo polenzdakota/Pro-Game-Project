@@ -12,13 +12,13 @@ public class BulletScript : MonoBehaviour{
 	// Use this for initialization
 	void Start () {
 		iniPosY = transform.position.y;
-		minY = iniPosY - 50;
+		minY = iniPosY + 50;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		transform.Translate (0, bulletSpeed, 0);
-		if (transform.position.y < minY) {
+		if (transform.position.y > minY) {
 			DestroyObject (gameObject);
 		}
 	
