@@ -87,8 +87,20 @@ public class PlayerScript : MonoBehaviour {
 		topLeftPlayFieldY += offset;
 	}
 
-	public void OnHitP() {
+	public void MakeInvulnerable() {
 		//TODO
+	}
+
+	public void OnTriggerEnter(Collider col) {
+		if (col.GetComponent<IKillable>() != null || col.GetComponent<EnemBulletScript>() != null) {
+			DestroyObject (col.gameObject);
+			OnHitP();
+		}
+	}
+
+	public void OnHitP() {
+		UI.GetComponent<UnityUIController>().UpdateLives(-1);
+		MakeInvulnerable();
 	}
 
 	/// <summary>

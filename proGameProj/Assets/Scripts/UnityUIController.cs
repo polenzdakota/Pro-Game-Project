@@ -4,7 +4,7 @@ using System.Collections;
 
 public class UnityUIController : MonoBehaviour {
 	public static int score;
-	public int lives = 3;
+	public static int lives = 3;
 	public bool displayDebugWindow = true;
 	public Text scoreText;
 	public Text debugText;
@@ -26,6 +26,7 @@ public class UnityUIController : MonoBehaviour {
 			int aproxPosY = (int)playerPos.y;
 			debugWindowText = debugWindowText + "Player Position: (" + aproxPosX + " , " + aproxPosY + ")\n";
 			debugWindowText = debugWindowText + "Camera Y Position: " + (int)camPosY;
+			debugWindowText = debugWindowText + "\nNumber of lives: " + lives;
 			debugText.text = debugWindowText;
 		}
 	}
@@ -42,6 +43,7 @@ public class UnityUIController : MonoBehaviour {
 			int aproxPosY = (int)playerPos.y;
 			debugWindowText = debugWindowText + "Player Position: (" + aproxPosX + " , " + aproxPosY + ")\n";
 			debugWindowText = debugWindowText + "Camera Y Position: " + (int)camPosY;
+			debugWindowText = debugWindowText + "\nNumber of lives: " + lives;
 			debugText.text = debugWindowText;
 		}
 	}
@@ -59,7 +61,8 @@ public class UnityUIController : MonoBehaviour {
 	/// </summary>
 	/// <param name="added">Lives to Add.</param>
 	public void UpdateLives(int added) {
-		lives += lives;
+		print (added);
+		lives += added;
 	}
 
 
