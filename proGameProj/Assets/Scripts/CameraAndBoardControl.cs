@@ -46,6 +46,15 @@ public class CameraAndBoardControl : MonoBehaviour {
 	}
 
 	/// <summary>
+	/// Updates the state of the scene.
+	/// </summary>
+	/// <param name="scene">Scene.</param>
+	public void UpdateSceneState(int scene) {
+		//TODO
+	}
+	
+
+	/// <summary>
 	/// Gets the cam speed.
 	/// </summary>
 	/// <returns>The cam speed.</returns>
