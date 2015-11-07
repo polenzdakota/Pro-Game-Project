@@ -11,6 +11,7 @@ public class UnityUIController : MonoBehaviour {
 	private string scoreFMT;
 	private static Vector3 playerPos;
 	private static float camPosY;
+	private static bool invulnerable = false;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,7 @@ public class UnityUIController : MonoBehaviour {
 			debugWindowText = debugWindowText + "Player Position: (" + aproxPosX + " , " + aproxPosY + ")\n";
 			debugWindowText = debugWindowText + "Camera Y Position: " + (int)camPosY;
 			debugWindowText = debugWindowText + "\nNumber of lives: " + lives;
+			debugWindowText = debugWindowText + "\nPlayer is invulnerable: " + invulnerable;
 			debugText.text = debugWindowText;
 		}
 	}
@@ -44,6 +46,7 @@ public class UnityUIController : MonoBehaviour {
 			debugWindowText = debugWindowText + "Player Position: (" + aproxPosX + " , " + aproxPosY + ")\n";
 			debugWindowText = debugWindowText + "Camera Y Position: " + (int)camPosY;
 			debugWindowText = debugWindowText + "\nNumber of lives: " + lives;
+			debugWindowText = debugWindowText + "\nPlayer is invulnerable: " + invulnerable;
 			debugText.text = debugWindowText;
 		}
 	}
@@ -54,6 +57,10 @@ public class UnityUIController : MonoBehaviour {
 	/// <param name="added">Score to Add.</param>
 	public void UpdateScore(int added) {
 		score += added;
+	}
+
+	public void UpdateVulnerability(bool status) {
+		invulnerable = status;
 	}
 
 	/// <summary>

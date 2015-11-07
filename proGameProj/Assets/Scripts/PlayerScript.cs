@@ -13,16 +13,24 @@ public class PlayerScript : MonoBehaviour {
 	public static float playFieldWidth = 40f;
 	public static float playFieldHeight = 20f;
 	public static float camSpeed = 0.1f;
+	private static bool invulnerable = false;
+	private static float currentTime;
+	private static float endInvulnerableTime;
 	public GameObject UI;
 
 
 	// Use this for initialization
 	void Start () {
+		currentTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		currentTime = Time.time;
 		CheckInputs ();
+		if (invulnerable && currentTime > endInvulnerableTime) {
+			FlipInvulnerable();
+		}
 	}
 
 	/// <summary>
@@ -90,8 +98,10 @@ public class PlayerScript : MonoBehaviour {
 	/// <summary>
 	/// Makes the player invulnerable.
 	/// </summary>
-	public void MakeInvulnerable() {
-		//TODO
+	public void FlipInvulnerable() {
+		invulnerable = !invulnerable;
+		endInvulnerableTime = Time.time + 2f;
+		UI.GetComponent<UnityUIController>().UpdateVulnerability (invulnerable);
 	}
 
 	/// <summary>
@@ -101,7 +111,9 @@ public class PlayerScript : MonoBehaviour {
 	public void OnTriggerEnter(Collider col) {
 		if (col.GetComponent<IKillable>() != null || col.GetComponent<EnemBulletScript>() != null) {
 			DestroyObject (col.gameObject);
-			OnHitP();
+			if(!invulnerable) {
+				OnHitP();
+			}
 		}
 	}
 
@@ -110,7 +122,9 @@ public class PlayerScript : MonoBehaviour {
 	/// </summary>
 	public void OnHitP() {
 		UI.GetComponent<UnityUIController>().UpdateLives(-1);
-		MakeInvulnerable();
+		FlipInvulnerable();
+		float beginInvulnerable = Time.time;
+
 	}
 
 	/// <summary>
