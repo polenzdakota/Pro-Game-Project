@@ -61,7 +61,6 @@ public class UnityUIController : MonoBehaviour {
 	/// </summary>
 	/// <param name="added">Lives to Add.</param>
 	public void UpdateLives(int added) {
-		print (added);
 		lives += added;
 	}
 
