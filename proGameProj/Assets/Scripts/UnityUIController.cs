@@ -73,8 +73,12 @@ public class UnityUIController : MonoBehaviour {
 	/// <param name="added">Lives to Add.</param>
 	public void UpdateLives(int added) {
 		lives += added;
-	}
 
+		if (lives == 0) {
+			Application.LoadLevel ("endScene");
+		}
+
+	}
 
 	/// <summary>
 	/// Updates the cam Y position.
