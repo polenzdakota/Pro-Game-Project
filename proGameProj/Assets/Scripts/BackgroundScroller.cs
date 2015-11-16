@@ -5,8 +5,7 @@ public class BackgroundScroller : MonoBehaviour {
 
 	public float scrollSpeed;
 	public float tileSizeZ;
-	// Use this for initialization
-
+	public GameObject camera;
 	private Vector3 startPosition;
 
 	void Start () {
@@ -15,8 +14,7 @@ public class BackgroundScroller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float newPosition = Mathf.Repeat (Time.time * scrollSpeed, tileSizeZ);
-		transform.position = startPosition + Vector3.forward * newPosition;
-	
+		float newPositionDY = camera.GetComponent<CameraAndBoardControl> ().GetCamSpeed();
+		transform.Translate (0, newPositionDY, 0);
 	}
 }
