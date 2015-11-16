@@ -22,6 +22,10 @@ public class PlayerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currentTime = Time.time;
+		topLeftPlayFieldX = -20f;
+		topLeftPlayFieldY = 10f;
+		playFieldWidth = 40f;
+		playFieldHeight = 20f;
 	}
 	
 	// Update is called once per frame
@@ -30,6 +34,9 @@ public class PlayerScript : MonoBehaviour {
 		CheckInputs ();
 		if (invulnerable && currentTime > endInvulnerableTime) {
 			FlipInvulnerable();
+		}
+		if (transform.position.y > 400) {
+			UI.GetComponent<UnityUIController>().EndGame();
 		}
 	}
 

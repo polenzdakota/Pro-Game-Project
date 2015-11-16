@@ -16,6 +16,8 @@ public class UnityUIController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		lives = 3;
+		score = 0;
 		scoreFMT = "0000000000";
 		string fullScore = score.ToString (scoreFMT);
 		string fullScoreToText = "Score: " + fullScore;
@@ -80,9 +82,13 @@ public class UnityUIController : MonoBehaviour {
 		lives += added;
 
 		if (lives == 0) {
-			Application.LoadLevel ("endScene");
+			EndGame();
 		}
+	}
 
+	public void EndGame() {
+		PlayerPrefs.SetInt ("Player Score", score);
+		Application.LoadLevel ("endScene");
 	}
 
 	/// <summary>

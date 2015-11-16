@@ -20,6 +20,7 @@ public class BossScript : MonoBehaviour, IKillable {
 	public GameObject control;
 	public GameObject player;
 	public GameObject EnemBullet;
+	public GameObject EndGame;
 	
 	// Use this for initialization
 	void Start () {
@@ -61,6 +62,7 @@ public class BossScript : MonoBehaviour, IKillable {
 	public void OnKill() {
 		DestroyObject (gameObject);
 		UI.GetComponent<UnityUIController> ().UpdateScore (200);
+		UI.GetComponent<UnityUIController> ().EndGame ();
 	}
 	
 	/// <summary>
