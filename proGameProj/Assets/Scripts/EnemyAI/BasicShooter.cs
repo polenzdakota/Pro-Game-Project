@@ -60,7 +60,6 @@ public class BasicShooter : MonoBehaviour, IKillable {
 	/// </summary>
 	public void OnHit() {
 		DestroyObject (gameObject);
-		print ("trigger");
 		UI.GetComponent<UnityUIController> ().UpdateScore (200);
 	}
 
