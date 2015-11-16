@@ -189,7 +189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lives
+  m_Text: 'Current HP: '
 --- !u!222 &23950561
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -210,8 +210,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -1.52590001e-05, y: 39.5369987}
-  m_SizeDelta: {x: 53, y: 26.2000008}
+  m_AnchoredPosition: {x: 2.5, y: 39.5369987}
+  m_SizeDelta: {x: 178.399994, y: 26.2000008}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &46570999
 Prefab:
@@ -4970,6 +4970,10 @@ Prefab:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11484262, guid: 1374aa3957f71db4598d9837e90a7d12, type: 2}
+      propertyPath: HPText
+      value: 
+      objectReference: {fileID: 23950560}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1374aa3957f71db4598d9837e90a7d12, type: 2}
   m_IsPrefabParent: 0

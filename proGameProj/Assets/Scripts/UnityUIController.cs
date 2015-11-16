@@ -7,6 +7,7 @@ public class UnityUIController : MonoBehaviour {
 	public static int lives = 3;
 	public bool displayDebugWindow = true;
 	public Text scoreText;
+	public Text HPText;
 	public Text debugText;
 	private string scoreFMT;
 	private static Vector3 playerPos;
@@ -20,6 +21,8 @@ public class UnityUIController : MonoBehaviour {
 		string fullScoreToText = "Score: " + fullScore;
 		scoreText.text = fullScoreToText;
 		playerPos = new Vector3 (0, 0, 0);
+		string stHPText = "Current HP:" + lives;
+		HPText.text = stHPText;
 
 		if (displayDebugWindow) {
 			string debugWindowText = "DebugWindow\n";
@@ -38,6 +41,8 @@ public class UnityUIController : MonoBehaviour {
 		string fullScore = score.ToString (scoreFMT);
 		string fullScoreToText = "Score: " + fullScore;
 		scoreText.text = fullScoreToText;
+		string stHPText = "Current HP:" + lives;
+		HPText.text = stHPText;
 		
 		if (displayDebugWindow) {
 			string debugWindowText = "DebugWindow\n";
