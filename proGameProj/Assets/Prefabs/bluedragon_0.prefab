@@ -75,7 +75,7 @@ MonoBehaviour:
   UI: {fileID: 188334, guid: 1374aa3957f71db4598d9837e90a7d12, type: 2}
   control: {fileID: 0}
   player: {fileID: 0}
-  EnemBullet: {fileID: 0}
+  EnemBullet: {fileID: 156024, guid: ec6e8375d8856634a804bd0fb40530c8, type: 2}
 --- !u!212 &21274422
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -108,7 +108,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: EnemBullet
+      value: 
+      objectReference: {fileID: 156024, guid: ec6e8375d8856634a804bd0fb40530c8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 103756}

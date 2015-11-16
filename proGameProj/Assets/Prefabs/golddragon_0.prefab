@@ -72,9 +72,9 @@ MonoBehaviour:
   hp: 1
   yDirection: 0
   speed: .100000001
-  control: {fileID: 188334, guid: 1374aa3957f71db4598d9837e90a7d12, type: 2}
+  control: {fileID: 0}
   UI: {fileID: 188334, guid: 1374aa3957f71db4598d9837e90a7d12, type: 2}
-  player: {fileID: 162518, guid: 692f7111efaec2941918b56f43de72ca, type: 2}
+  player: {fileID: 0}
 --- !u!212 &21208902
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -111,11 +111,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: player
       value: 
-      objectReference: {fileID: 162518, guid: 692f7111efaec2941918b56f43de72ca, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: control
       value: 
-      objectReference: {fileID: 188334, guid: 1374aa3957f71db4598d9837e90a7d12, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
